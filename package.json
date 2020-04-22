@@ -75,7 +75,7 @@
     "moment": "^2.24.0",
     "mutationobserver-shim": "^0.3.3",
     "ng2-charts": "^2.3.0",
-    "ngx-bootstrap": "^2.0.5",
+    "ngx-bootstrap": "^5.5.0",
     "ngx-perfect-scrollbar": "^8.0.0",
     "pdfmake": "^0.1.62",
     "rxjs": "^6.5.3",
