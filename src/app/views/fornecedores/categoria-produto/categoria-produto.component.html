@@ -1,0 +1,65 @@
+<div div bsModal #modalCategoria="bs-modal" class="modal fade" id="modalCategoria" tabindex="-1" role="dialog"
+    aria-labelledby="cadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-red">
+                <strong class="modal-title" id="modalCategoriaLabel">Nova Categoria</strong>
+                <button type="button" (click)="closeModal()" class="close">
+                    <i class="fa fas fa-window-close bg-red"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="categoriaForm" (ngSubmit)="onFormSubmit(categoriaForm.value)">
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input">
+                            Nome:
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="descricao" id="descricao" formControlName="descricao">
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-dark" [disabled]="!categoriaForm.valid"><i class="fa fa-save"></i> Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-8 mx-auto">
+        <div class="card ">
+            <div class="card-header bg-red">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <strong class="text-black">
+                            Categorias existentes
+                        </strong>
+                    </div>
+                    <!--<div class="float-right">
+                        <button type="button" class="btn btn-dark" (click)="onSaveCategoria()">
+                            <i class="fa fa-plus"></i> 
+                            Adicionar
+                        </button>
+                    </div>-->
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="categorias" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome da Categoria</th>
+                           <!-- <th>Editar</th>
+                            <th>Excluir</th>-->
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!--/.row-->

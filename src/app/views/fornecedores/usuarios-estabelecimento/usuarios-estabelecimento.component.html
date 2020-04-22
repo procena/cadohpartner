@@ -1,0 +1,168 @@
+<div div bsModal #modalUser="bs-modal" class="modal fade" id="modalUser" tabindex="-1" role="dialog"
+    aria-labelledby="modalUserLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-red">
+                <h5 class="modal-title" id="modalUserLabel">Novo utilizador</h5>
+                <button type="button" (click)="closeModal()" class="close">
+                    <i class="fa fa-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div class="col-12">
+                  <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+                    <input type="text" class="form-control" name="id" id="id" formControlName="id" hidden
+                           *ngIf="dataSaved === true">
+                    <input type="text" class="form-control" name="estabelecimento" id="estabelecimento" formControlName="estabelecimento" hidden
+                           *ngIf="dataSaved === true">
+                    <div class="form-group row">
+                      <label class="col-md-4 col-form-label" for="primeiroNome">
+                        Primeiro Nome:
+                      </label>
+                      <div class="col-md-8">
+                        <div *ngIf="ctrlEditar; else content_primeiroNome">
+                          <input type="text" class="form-control" name="nome" id="primeiroNome" formControlName="primeiroNome">
+                        </div>
+                        <ng-template #content_primeiroNome>
+                          <div class="form-control pl-2">{{user.primeiroNome}} <i class="fa fa-id-card float-right"></i></div>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-4 col-form-label" for="segundoNome">
+                        Segundo Nome:
+                      </label>
+                      <div class="col-md-8">
+                        <div *ngIf="ctrlEditar; else content_segundoNome">
+                          <input type="text" class="form-control" name="nome" id="segundoNome" formControlName="segundoNome">
+                        </div>
+                        <ng-template #content_segundoNome>
+                          <div class="form-control pl-2">{{user.segundoNome}} <i class="fa fa-id-card-o float-right"></i></div>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-4 col-form-label" for="username">
+                        Utilizador:
+                      </label>
+                      <div class="col-md-8">
+                        <div *ngIf="ctrlEditar; else conten_username">
+                          <input type="text" class="form-control" name="username" id="username"
+                                 formControlName="username">
+                        </div>
+                        <ng-template #conten_username>
+                          <div class="form-control pl-2">{{user.username}} <i class="fa fa-phone-square float-right"></i></div>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div *ngIf="dataSaved === true" class="form-group row">
+                      <label class="col-md-4 col-form-label" for="password">
+                        Senha:
+                      </label>
+                      <div class="col-md-8">
+                        <input type="password" class="form-control" name="password" id="password"
+                               formControlName="password">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-4 col-form-label" for="genero">
+                        Sexo:
+                      </label>
+                      <div class="col-md-8">
+                        <div *ngIf="ctrlEditar; else content_genero">
+                          <select class="form-control" id="genero" formControlName="genero" hidden>
+
+                          </select>
+                          <select class="form-control" (change)="onChangeGenero($event.target.value)">
+                            <option *ngFor="let genero of generos" [value]="genero.descricao" [ngValue]="genero">
+                              {{ genero.descricao }}</option>
+                          </select>
+                        </div>
+                        <ng-template #content_genero>
+                          <div class="form-control pl-2">{{user.genero}} <i class="fa float-right" [ngClass]="{'fa-male': user.genero=='MASCULINO', 'fa-female':user.genero=='FEMENINO' }"></i></div>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <label class="col-md-4 col-form-label" for="tipoUsuario">
+                        Função:
+                      </label>
+
+                      <div class="col-md-8">
+                        <div *ngIf="ctrlEditar; else content_tipoUsuario">
+                          <select class="form-control" id="tipoUsuario" formControlName="tipoUsuario" hidden>
+
+                          </select>
+                          <select class="form-control" (change)="onChange($event.target.value)">
+                            <option *ngFor="let permissao of permissoes ;let i = index" [value]="i"
+                                    [ngValue]="tipoUsuario">
+                              {{ permissao.role }}</option>
+                          </select>
+                        </div>
+                        <ng-template #content_tipoUsuario>
+                          <div class="form-control pl-2">{{user.tipoUsuario.role}} <i class="fa fa-user-secret float-right"></i></div>
+                        </ng-template>
+                      </div>
+                    </div>
+
+                    <hr class="style10">
+                    <div class="text-center">
+                      <div *ngIf="ctrlEditar; else content_btn_editar">
+                        <button type="submit" class="btn btn-dark dt-button btn-lg"><i class="fa fa-save"></i> Salvar</button>
+                      </div>
+                      <ng-template #content_btn_editar>
+                        <button type="button" class="btn dt-button btn-lg btn-secondary" (click)="habilitarEdicao()"><i class="fa fa-edit"></i> Editar</button>
+                      </ng-template>
+                    </div>
+
+                    <!--<div>{{userForm.value | json}}</div>-->
+                  </form>
+                </div>
+
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-sm-10 mx-auto">
+        <div class="card ">
+            <div class="card-header bg-red">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <strong class="text-black">
+                            Utilizadores Cadastrados
+                        </strong>
+                    </div>
+                    <div class="float-right">
+                        <button type="button" class="btn btn-dark" (click)="onSaveUser()">
+                            <i class="fa fa-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="utilizadores" class="display table table-bordered table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome completo</th>
+                                <th>Utilizador</th>
+                                <!--<th>Função</th>-->
+                                <th>Sexo</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.row-->

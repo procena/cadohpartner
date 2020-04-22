@@ -1,0 +1,44 @@
+
+[
+    {
+      "id": "1",
+      "nome": "Cocacola",
+      "valor": "200,00",
+      "categoria": "Bebidas",
+      "imagem": "cocacola.png",
+      "status" :"Bloqueado"
+    },
+    {
+      "id": "2",
+      "nome": "Pizza 4 Estações",
+      "valor": "3.500,00",
+      "categoria": "Pizzas",
+      "imagem": "pizza4estacoes.png",
+      "status" :"Activo"
+    },
+    {
+      "id": "3",
+      "nome": "Salada",
+      "valor": "200,00",
+      "categoria": "Bebidas",
+      "imagem": "cocacola.png",
+      "status" :"Activo"
+    },
+    {
+      "id": "4",
+      "nome": "Pão",
+      "valor": "200,00",
+      "categoria": "Bebidas",
+      "imagem": "cocacola.png",
+      "status" :"2 ovos"
+    },
+    {
+      "id": "5",
+      "nome": "Fiambre",
+      "valor": "200,00",
+      "categoria": "Bebidas",
+      "imagem": "cocacola.png",
+      "status" :"Activo"
+    }         
+    
+]

@@ -1,0 +1,29 @@
+
+[
+    {
+      "id": "1",
+      "nome": "Pizzas Salgadas",
+      "status" :"Bloqueado"
+    },
+    {
+      "id": "2",
+      "nome": "Pizzas",
+      "status" :"Activo"
+    },
+    {
+      "id": "3",
+      "nome": "Bebidas",
+      "status" :"Activo"
+    },
+    {
+      "id": "4",
+      "nome": "Comidas",
+      "status" :"Bloqueado"
+    },
+    {
+      "id": "5",
+      "nome": "Fast Foods",
+      "status" :"Activo"
+    }         
+    
+]

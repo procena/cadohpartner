@@ -1,0 +1,68 @@
+
+[
+    {
+      "pedido": "001",
+      "total": "1200,00",
+      "data": "12/04/2019",
+      "status": "Entregue",
+      "entregue" :"Não"
+    },
+    {
+      "pedido": "002",
+      "total": "345,00",
+      "data": "12/04/2019",
+      "status": "Saiu para entrega",
+      "entregue" :"Não"
+    },
+    {
+      "pedido": "003",
+      "total": "3500,00",
+      "data": "12/04/2019",
+      "status": "Cancelado",
+      "entregue" :"SIM"
+    },
+    {
+      "pedido": "004",
+      "total": "3700,00",
+      "data": "12/04/2019",
+      "status": "Saiu para entrega",
+      "entregue" :"Não"
+    },
+    {
+      "pedido": "005",
+      "total": "1200,00",
+      "data": "12/04/2019",
+      "status": "Entregue",
+      "entregue" :"SIM"
+    },
+    {
+      "pedido": "006",
+      "total": "6200,00",
+      "data": "12/04/2019",
+      "status": "Aberto",
+      "entregue" :"SIM"
+    },
+    {
+      "pedido": "007",
+      "total": "5200,00",
+      "data": "12/04/2019",
+      "status": "Em preparo",
+      "entregue" :"Não"
+    },
+    {
+      "pedido": "008",
+      "total": "5200,00",
+      "data": "12/04/2019",
+      "status": "Em preparo",
+      "entregue" :"SIM"
+    } 
+    ,
+    {
+      "pedido": "009",
+      "total": "5200,00",
+      "data": "12/04/2019",
+      "status": "Em preparo",
+      "entregue" :"Não"
+    }      
+    
+]

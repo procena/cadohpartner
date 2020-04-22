@@ -1,0 +1,164 @@
+<div div bsModal #produtoModal="bs-modal" class="modal fade bd-example-modal-lg" id="produtoModal" tabindex="-1"
+     role="dialog" aria-labelledby="produtoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-red">
+        <h5 class="modal-title" id="produtoModalLabel">Registar Produto</h5>
+        <button type="button" (click)="close()">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="produtoForm" (ngSubmit)="onFormSubmit(produtoForm.value)">
+          <div class="animated fadeIn">
+            <div class="row">
+              <div class="col-md-12 mb-4">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <img src="assets/img/fast-food.svg" class="card-img" alt="Ingredientes">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <div class="form-group row">
+                              <label class="col-md-3 col-form-label" for="nome">
+                                Nome:
+                              </label>
+                              <div class="col-md-9">
+                                <input type="text" class="form-control" name="nome" id="nome"
+                                       formControlName="nome">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 col-form-label" for="categoria">
+                                Categoria:
+                              </label>
+                              <div class="col-md-9">
+                                <select class="form-control" formControlName="categoria" id="categoria"
+                                        hidden></select>
+                                <select class="form-control" (change)="onChange($event.target.value)">
+                                  <option *ngFor="let item of categorias;let i = index" [value]="i"
+                                          [ngValue]="item">
+                                    {{ item.descricao }}
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 col-form-label" for="valor">
+                                Valor:
+                              </label>
+                              <div class="col-md-3">
+                                <input type="text" class="form-control" name="valor" id="valor"
+                                       formControlName="preco" placeholder="ex. 1.000,00 KZ">
+                              </div>
+                              <label class="col-md-3 col-form-label" for="tempoPreparo">
+                                Tempo de Preparo:
+                              </label>
+                              <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="ex. 30 min"
+                                       name="tempoPreparo" id="tempoPreparo"
+                                       formControlName="tempoPreparo">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="card mb-3">
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <img src="assets/img/harvest.svg" class="card-img" alt="Ingredientes">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">Agregar ingredientes ao Produto</h5>
+                            <ul class="list-group list-group-flush list-group-item-action overflow-auto" style="max-height: 350px" id="listaIngredientes">
+                            </ul>
+                            <div class="form-row mt-2 p-2" *ngIf="ctrlInserirIngredienteForm">
+                              <div class="form-group col-10">
+                                <ng-select class="form-control"
+                                           [items]="allIngredientes"
+                                           bindLabel="nome"
+                                           bindValue="id"
+                                           clearAllText="Clear"
+                                           formControlName="selectedIngrediente"
+                                           (change)="onChangeSelect($event)">
+                                </ng-select>
+                              </div>
+                              <div class="col-2">
+                                <button class="btn btn-primary" type="button" (click)="adicionarIngredientes()">
+                                  Inserir
+                                </button>
+                              </div>
+                            </div>
+                            <div class="text-center" *ngIf="!ctrlInserirIngredienteForm">
+                              <button class="btn btn-secondary" (click)="ctrlInserirIngredienteForm=true">Inserir Ingredientes</button>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="style10">
+          <div class="text-center">
+            <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-save"></i> Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-8 col-sm-10 mx-auto">
+    <div class="card ">
+      <div class="card-header bg-red">
+
+        <div class="clearfix">
+          <div class="float-left">
+            <strong class="text-black">
+              Lista de Produtos
+            </strong>
+          </div>
+
+          <div class="float-right">
+            <button type="button" class="btn btn-dark" (click)="openModal()"><i class="fa fa-plus"></i>
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="produtos" class="display" style="width:100%">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome do Produto</th>
+              <th>Categoria/Grupo</th>
+              <th class="text-right">Valor</th>
+              <th class="text-center bg-info"><i class="fa fa-check-square-o "></i></th>
+              <th class="text-center bg-success"><i class="fa fa-pencil"></i></th>
+              <th class="text-center bg-warning"><i class="fa fa-ban"></i></th>
+            </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!--/.row-->

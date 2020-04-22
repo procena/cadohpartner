@@ -1,0 +1,25 @@
+
+[
+    {
+      "id": "1",
+      "nome": "Funcionário Administrador",
+      "email": "admin@gmail.com",
+      "funcao": "admin",
+      "status" :"Activo"
+    }, 
+    {
+      "id": "2",
+      "nome": "Funcionário",
+      "email": "funcionario@gmail.com",
+      "funcao": "admin",
+      "status" :"Activo"
+    }, 
+     {
+      "id": "3",
+      "nome": "Gerente",
+      "email": "gerente@gmail.com",
+      "funcao": "admin",
+      "status" :"Activo"
+    }       
+    
+]

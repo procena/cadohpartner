@@ -1,0 +1,62 @@
+
+<div div bsModal #modalIngrediente="bs-modal" class="modal fade" id="modalIngrediente" tabindex="-1" role="dialog"
+    aria-labelledby="modalIngredienteLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-red">
+                <h5 class="modal-title" id="modalIngredienteLabel">Novo Ingrediente</h5>
+                <button type="button" (click)="closeModal()">
+                    <i class="fa fa-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"  [formGroup]="ingredienteForm" (ngSubmit)="onFormSubmit(ingredienteForm.value)">
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="nome">
+                            Nome:
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-dark"><i class="fa fa-save"></i>  Salvar </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-8 mx-auto">
+        <div class="card ">
+            <div class="card-header bg-red">
+                <div class="clearfix">
+                    <div  class="float-left">
+                        <h3 class="text-black">
+                            Ingrediente registados
+                        </h3>
+                    </div>
+
+                    <div class="float-right">
+                        <button type="button" class="btn btn-dark" (click)="onSaveIngrediente()"><i class="fa fa-plus"></i> Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="ingredientes" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do Ingrediente</th>
+                            <!-- <th>Status</th>-->
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!--/.row-->

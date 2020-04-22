@@ -1,0 +1,134 @@
+<div div bsModal #editModal="bs-modal" class="modal fade" id="editModal" tabindex="-1" role="dialog"
+     aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-red">
+        <h5 class="modal-title" id="editModalLabel"><span class="badge badge-pill badge-primary">{{idPedidoSelect}}</span>Detalhes do pedido</h5>
+        <button type="button" class="btn btn-danger close" (click)="closeModal()">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row p-1">
+          <div class="card border-0 border-bottom shadow-sm mb-3 col-6">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="assets/img/lunch.svg" class="card-img" alt="pedidos">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Produtos</h5>
+                  <ul class="list-group list-group-flush">
+                    <li *ngFor="let produto of itens" class="list-group-item">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{produto.produto.nome}}</h5>
+                        <small>{{produto.qtdItem}} UN</small>
+                      </div>
+                      <p class="mb-1">Preço UN: {{produto.precoUnitario}}.00 AOA</p>
+                      <small>Total: {{produto.custoTotal}}.00 AOA</small>
+                    </li>
+                  </ul>
+                  <table class="table table-sm mt-3">
+                    <tr>
+                      <td>Total: </td>
+                      <th>{{pedido.custoTotal}}.00 AOA</th>
+                    </tr>
+                    <tr>
+                      <td>Nº Pedido: </td>
+                      <th>{{pedido.id}}</th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 border-bottom shadow-sm mb-3 col-6">
+            <div class="row no-gutters">
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Informações do Cliente</h5>
+                  <table class="table table-sm">
+                    <tr>
+                      <td>Nome</td>
+                      <th>{{clienteSelect.primeiroNome}} {{clienteSelect.segundoNome}}</th>
+                    </tr>
+                    <tr>
+                      <td>Telefone</td>
+                      <th>{{clienteSelect.cliente.telefone}}</th>
+                    </tr>
+                    <tr>
+                      <th colspan="2">Endereço de Entrega</th>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item" *ngFor="let endereco of clienteSelect.cliente.clienteEnderecos">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">{{endereco["descricao"]}}</h5>
+                              <i class="fa fa-map-marker fa-2x"></i>
+                            </div>
+                            <p class="mb-1">{{endereco["endereco"].provincia}}, {{endereco["endereco"].municipio}} </p>
+                            <small>{{endereco["endereco"].morada}} Bª {{endereco["endereco"].bairro}}</small>
+                          </li>
+
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+              <div class="col-md-4">
+                <img src="assets/img/contact.svg" class="card-img" alt="pedidos">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary bt-lg p-2 font-2xl" type="button" (click)="cancelarPedido()">
+            <i class="fa fa-dot-circle-o" style="color: red"></i> Cancelar o Pedido
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-11 mx-auto col-lg-12">
+    <div class="card ">
+      <div class="card-header bg-red">
+        <strong class="text-black">Todos os pedidos</strong>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <!--id="pedidos"-->
+          <table id="pedidos" class="display table table-bordered" style="width:100%">
+            <thead>
+            <tr>
+              <th>Nº</th>
+              <th>Total</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Observação</th>
+              <th>Visualizar</th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr>
+              <th>Nº</th>
+              <th>Total</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Observação</th>
+              <th>Visualizar</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

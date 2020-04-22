@@ -1,0 +1,29 @@
+
+[
+    {
+      "id": "1",
+      "nome": "Arroz",
+      "status" :"Bloqueado"
+    },
+    {
+      "id": "2",
+      "nome": "Bife de Frango",
+      "status" :"Activo"
+    },
+    {
+      "id": "3",
+      "nome": "Salada",
+      "status" :"Activo"
+    },
+    {
+      "id": "4",
+      "nome": "Pão",
+      "status" :"2 ovos"
+    },
+    {
+      "id": "5",
+      "nome": "Fiambre",
+      "status" :"Activo"
+    }         
+    
+]

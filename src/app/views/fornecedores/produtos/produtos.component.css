@@ -1,0 +1,28 @@
+.imagem {
+    width: 64px;
+    height: 64px;
+    background-color: blue;
+}
+.ingrediente {
+    padding: .7em;
+    margin: 0;
+    /*border: 1px solid #ccc;*/
+    text-align: center;
+  }
+  .enabled {
+      height: 20px;
+      width: 20px;
+  }
+  .ingredientes {
+    padding: .7em;
+    margin: 0;
+    /*border: 1px solid #ccc;*/
+    text-align: center;
+  }
+  
+  .ingredienteTable {
+    width: 100%;
+    margin-bottom : .5em;
+    table-layout: fixed;
+    text-align: center;
+  }
